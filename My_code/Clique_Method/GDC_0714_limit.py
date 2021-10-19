@@ -77,7 +77,7 @@ def initialize(number, distributed):
         points = np.random.poisson(lam=(100, 100), size=(number, 2))
     if distributed == "read":
         global index
-        name = 'C:/Users/74412/Desktop/article/Article_Data/Uniform/' + str(number) + '_' + str(index) + '.csv'
+        name = 'C:/Users/karel/Desktop/article/Article_Data/Normal/' + str(number) + '_' + str(index) + '.csv'
         points = pd.read_csv(name, usecols=[1, 2]).values
         # points = pd.read_csv(name, usecols=[1, 2, 3]).values
         # name = 'C:/Users/74412/Desktop/article/Article_Data/Figure/data.csv'
@@ -541,7 +541,7 @@ def core(points_set, degree, points, adjacency_matrix):
 def main():
     # __points_set，点类的集合，__points点的列表集合，__adjacency_matrix邻接矩阵
     __points_set, __points, __adjacency_matrix, __degree, __points_distance \
-        = initialize(200, "read")  # uniform, normal, poisson, read
+        = initialize(200, "uniform")  # uniform, normal, poisson, read
     __adjacency_matrix = np.array(__adjacency_matrix)
 
     # __mbs_set = randomization_1_start(__points_set, __degree)
@@ -573,7 +573,7 @@ if __name__ == "__main__":
 
     RADIUS = 50
     DIAMETER = 2 * RADIUS
-    L = 50
+    L = 20
 
 
     # 在已经生成的数据上，跑代码

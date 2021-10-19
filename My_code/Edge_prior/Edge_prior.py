@@ -5,8 +5,6 @@ from scipy.spatial import distance
 import miniball
 import pandas as pd
 
-from My_code.Edge_prior import Draw
-
 
 def find_L_nearest(base, uncovered):
     wk = np.array([base])
@@ -66,18 +64,13 @@ def find_L_nearest(base, uncovered):
             ball_points = tmp_set
             break
 
-    # print("******************************")
-    # print(center)
-    # print(radius)
-    # print(ball_points)
-
     return center, ball_points
 
 
-if __name__ == '__main__':
-    L = 100
-    R = 75
-    number = 300
+if __name__ == "__main__":
+    L = 100000
+    R = 50
+    number = 100
 
     sum_MBS = 0
 
@@ -85,7 +78,7 @@ if __name__ == '__main__':
 
         ball_set = []
 
-        name = 'C:/Users/74412/Desktop/article/Article_Data/Uniform/' + str(number) + '_' + str(index) + '.csv'
+        name = 'C:/Users/karel/Desktop/article/Article_Data/Uniform/' + str(number) + '_' + str(index) + '.csv'
         data = pd.read_csv(name, usecols=[1, 2]).values
 
         points = data.copy()

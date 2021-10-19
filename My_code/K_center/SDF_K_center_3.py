@@ -79,8 +79,8 @@ def initialize(number):
     # points = pd.read_csv('C:/Users/74412/Desktop/article/k_center/SDF_Q/k_center_test_042591.csv', usecols=[1, 2]).values
     # points = pd.read_csv('F:/Scientific_Literature/写论文/test_data/USA - 13,509.csv', usecols=[1, 2]).values
 
-    name = 'C:/Users/74412/Desktop/article/Article_Data/3D/Uniform/' + str(number) + '_' + str(index) + '.csv'
-    points = pd.read_csv(name, usecols=[1, 2, 3]).values
+    name = 'C:/Users/karel/Desktop/article/Article_Data/Uniform/' + str(number) + '_' + str(index) + '.csv'
+    points = pd.read_csv(name, usecols=[1, 2]).values
 
     """
     points = np.round(points, 2)s
@@ -305,14 +305,14 @@ if __name__ == "__main__":
     # 在已经生成的数据上，跑代码
     start_time = time.time()
 
-    RADIUS = 50
+    RADIUS = 25
     ave_mbs_num = 0
     min_mbs_num = 10000
-    number = 100    # 执行的图的个数
+    number = 5    # 执行的图的个数
     sum_ex_count = 0
-    POINT_COUNT = 150  # 点的数目
+    POINT_COUNT = 200  # 点的数目
 
-    for index in range(20, 30):
+    for index in range(10, 15):
         mbs_num = 0
         __points = initialize(POINT_COUNT)
 

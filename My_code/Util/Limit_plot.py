@@ -4,7 +4,7 @@ import pandas as pd
 
 
 if __name__ == '__main__':
-    name = 'C:/Users/74412/Desktop/article/Article_Data/limit/limit_L.csv'
+    name = 'C:/Users/karel/Desktop/article/Article_Data/limit/limit_L.csv'
     points = pd.read_csv(name, usecols=[1, 2]).values
     line_R25_L10 = points[0:7]
     line_R25_L20 = points[7:14]
@@ -31,6 +31,6 @@ if __name__ == '__main__':
     # plt.ylim(5,55)
     plt.xlabel("the number of GTs")
     plt.ylabel("the number of required MBSs")
-    plt.savefig("C:/Users/74412/Desktop/limit.png", dpi=1000, bbox_inches='tight')
+    # plt.savefig("C:/Users/74412/Desktop/limit.png", dpi=1000, bbox_inches='tight')
     plt.show()
 

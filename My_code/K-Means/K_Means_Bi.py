@@ -32,7 +32,7 @@ def main():
     # 生成的数据
     global index
     global POINT_COUNT
-    name = 'C:/Users/74412/Desktop/article/Article_Data/Uniform/' + str(POINT_COUNT) + '_' + str(index) + '.csv'
+    name = 'C:/Users/karel/Desktop/article/Article_Data/Uniform/' + str(POINT_COUNT) + '_' + str(index) + '.csv'
     data = pd.read_csv(name, usecols=[1, 2]).values
     # data = pd.read_csv('F:/Scientific_Literature/写论文/test_data/Nicaragua - 3,496.csv', usecols=[1, 2]).values
     # data = np.random.uniform(-100, 100, size=(400, 2))
