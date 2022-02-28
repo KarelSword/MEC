@@ -7,16 +7,16 @@ from scipy.spatial import ConvexHull
 对比图像的绘制
 """
 
-RADIUS = 800
+RADIUS = 250
 DIAMETER = 2 * RADIUS
 
 
 # 绘制点，可以选择是否绘制点的信息
 def show_scatter(points, flag, points_color):
     plt.scatter(points[:, 0], points[:, 1], marker="o", color=points_color,
-                edgecolors="black", s=10, linewidths=0.5)
-    plt.scatter(points[400, 0], points[400, 1], marker="o", color=points_color, zorder=0,
-                edgecolors="black", s=10, linewidths=0.5, label='GT', )
+                edgecolors="black", s=20, linewidths=0.5)
+    # plt.scatter(points[400, 0], points[400, 1], marker="o", color=points_color, zorder=0,
+    #             edgecolors="black", s=10, linewidths=0.5, label='GT', )
     if flag:
         ax = plt.gca()
         n = np.arange(len(points))
@@ -55,43 +55,47 @@ def draw_mbs_other(mbs_set, style, name, color):
 
 if __name__ == '__main__':
 
-    name = 'F:/Scientific_Literature/写论文/test_data/Uruguay - 734.csv'
+    # name = 'F:/Scientific_Literature/写论文/test_data/Uruguay - 734.csv'
+    name = 'C:/Users/karel/Desktop/大论文/Data/50_0.csv'
     points = pd.read_csv(name, usecols=[1, 2]).values
     # hull = ConvexHull(points)
     # plt.plot(points[hull.vertices, 0], points[hull.vertices, 1], 'r--', lw=2)
     # plt.plot(points[hull.vertices, 0], points[hull.vertices, 1], 'ro')
     show_scatter(points, 0, '#00CCFF')  # 00CCFF # 0099CC
 
-
-    name = 'C:/Users/74412/Desktop/article/Article_Data/Fig_4/SDF_Uruguay.csv'
+    """
+    name = 'C:/Users/karel/Desktop/article/Article_Data/Fig_4/SDF_Uruguay.csv'
     sdf_mbs = pd.read_csv(name, usecols=[1, 2]).values
     draw_mbs_other(sdf_mbs, "*", "MBS(Core-sets)", "#33CC33")
-
-
     """
-    name = 'C:/Users/74412/Desktop/article/Article_Data/Fig_4/MDP_Uruguay.csv'
+
+
+    # name = 'C:/Users/74412/Desktop/article/Article_Data/Fig_4/MDP_Uruguay.csv'
+    name = 'C:/Users/karel/Desktop/大论文/Data/MDP_VBS.csv'
     MDP_mbs = pd.read_csv(name, usecols=[1, 2]).values
     draw_mbs(MDP_mbs)
-    """
+
 
     """
-    name = 'C:/Users/74412/Desktop/article/Article_Data/Fig_4/Spiral_Uruguay.csv'
+    # name = 'C:/Users/74412/Desktop/article/Article_Data/Fig_4/Spiral_Uruguay.csv'
+    name = 'C:/Users/karel/Desktop/大论文/Data/Spiral_VBS.csv'
     spiral_mbs = pd.read_csv(name, usecols=[1, 2]).values
     x = [dot[0] for dot in spiral_mbs]
     y = [dot[1] for dot in spiral_mbs]
-    plt.plot(x, y, color="red", linewidth=1.5)
+    # plt.plot(x, y, color="red", linewidth=1.5)
     draw_mbs_other(spiral_mbs, "*", "MBS(Spiral)", "#33CC33")
     """
 
     """
-    name = 'C:/Users/74412/Desktop/article/Article_Data/Fig_4/K-means_Uruguay.csv'
+    name = 'C:/Users/karel/Desktop/大论文/Data/K-means_VBS.csv'
     k_means_mbs = pd.read_csv(name, usecols=[1, 2]).values
     draw_mbs_other(k_means_mbs, "*", "MBS(K-means)", "#33CC33")
     """
 
-    plt.legend()
+    # plt.legend()
     plt.axis("equal")
-    plt.axis('off')
-    # plt.savefig("C:/Users/74412/Desktop/SDF_URA.png", dpi=1000, bbox_inches = 'tight')
+    # plt.axis('off')
+
+    plt.savefig("C:/Users/karel/Desktop/大论文/Data/MDP.png", dpi=1000, bbox_inches = 'tight')
     plt.show()
 

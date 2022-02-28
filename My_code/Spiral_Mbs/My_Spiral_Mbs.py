@@ -146,7 +146,7 @@ def execute(seq, radius):
 
 def main():
     start_time = time.time()
-    RADIUS = 50
+    RADIUS = 250
 
     np.random.seed()
     # data = np.random.uniform(-100, 100, size=(500, 2))
@@ -154,7 +154,7 @@ def main():
 
     # data = np.random.poisson(100, size=(800, 2))
 
-    name = 'C:/Users/74412/Desktop/article/Article_Data/Normal/' + str(100) + '_' + str(index) + '.csv'
+    name = 'C:/Users/karel/Desktop/大论文/Data/' + str(50) + '_' + str(index) + '.csv'
     data = pd.read_csv(name, usecols=[1, 2]).values
     # data = pd.read_csv('F:/Scientific_Literature/写论文/test_data/Uruguay - 734.csv', usecols=[1, 2]).values
     # data = np.round(data, 3)
@@ -172,7 +172,7 @@ def main():
     secs = end_time - start_time
     # print(" took", secs, "seconds")
 
-    """
+
     x = [dot[0] for dot in data]
     y = [dot[1] for dot in data]
 
@@ -193,10 +193,11 @@ def main():
     y = [dot[1] for dot in UAV_positionSet]
     plt.scatter(x[0], y[0], color='red')
 
-    plt.plot(x, y, color="red")
+    # 关闭了Spiral的顺序连接
+    # plt.plot(x, y, color="red")
     plt.axis("equal")
     plt.show()
-    """
+
 
     # return len(UAV_positionSet)
     return len(UAV_positionSet), ex_count, UAV_positionSet
@@ -210,7 +211,7 @@ if __name__ == "__main__":
     ave_mbs_num = 0
     min_mbs_num = float("inf")
     max_mbs_num = 0
-    number = 100
+    number = 1
     sum_ex_count = 0
 
     for index in range(number):
@@ -251,10 +252,10 @@ if __name__ == "__main__":
     # print(" took", secs, "seconds")
     """
 
-    """
-    df = pd.DataFrame(UAV_positionSet)
-    df.to_csv('C:/Users/74412/Desktop/article/Article_Data/Fig_4/Spiral_Uruguay.csv')
-    """
+    # 输出的操作
+    # df = pd.DataFrame(UAV_positionSet)
+    # df.to_csv('C:/Users/karel/Desktop/大论文/Data/Spiral_VBS.csv')
+
 
     """
     # 分析Spiral算法在随机不读取情况下的效果

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from My_code.Clique_Method import GDC_0411
 
-RADIUS = 25
+RADIUS = 250
 
 
 # 绘制出边的连接图

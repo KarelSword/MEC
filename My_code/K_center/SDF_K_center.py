@@ -77,10 +77,10 @@ def initialize(number):
     # points = np.random.uniform(-100, 100, size=(number, 2))
     # points = np.random.normal(0, 1, size=(number, 2))
     # points = pd.read_csv('C:/Users/74412/Desktop/article/k_center/SDF_Q/k_center_test_042591.csv', usecols=[1, 2]).values
-    # points = pd.read_csv('F:/Scientific_Literature/写论文/test_data/Italy - 16,862.csv', usecols=[1, 2]).values
+    points = pd.read_csv('F:/Scientific_Literature/写论文/test_data/Italy - 16,862.csv', usecols=[1, 2]).values
 
-    name = 'C:/Users/karel/Desktop/article/Article_Data/Uniform/' + str(number) + '_' + str(index) + '.csv'
-    points = pd.read_csv(name, usecols=[1, 2]).values
+    # name = 'C:/Users/karel/Desktop/article/Article_Data/Uniform/' + str(number) + '_' + str(index) + '.csv'
+    # points = pd.read_csv(name, usecols=[1, 2]).values
 
     """
     points = np.round(points, 2)s
@@ -283,9 +283,9 @@ def main():
 
 if __name__ == "__main__":
 
-    """
-    __k = 8
-    POINT_COUNT = 22775  # 点的数目
+
+    __k = 5
+    POINT_COUNT = 16862  # 点的数目
 
     __points = initialize(POINT_COUNT)
 
@@ -299,9 +299,9 @@ if __name__ == "__main__":
     
     print("mec_count")
     print(mec_count)
+
+
     """
-
-
     # 在已经生成的数据上，跑代码
     start_time = time.time()
 
@@ -344,16 +344,18 @@ if __name__ == "__main__":
     print(" took", secs, "seconds")
     print(" sec_ave", secs_ave)
     print(" sum_ex_count", sum_ex_count / number)
-
+    """
 
     """
     df = pd.DataFrame(opt_ball_center)
     df.to_csv('C:/Users/74412/Desktop/article/Article_Data/Fig_4/SDF_Uruguay.csv')
     """
 
-    """
+
     Draw.show_scatter(__points, 0, "#00CC66")
-    Draw.draw_mbs(opt_ball_center, RADIUS)
+    Draw.draw_mbs(__opt_ball_center, __optimal)
     Draw.plt.axis("equal")
+
+    Draw.plt.savefig("C:/Users/karel/Desktop/Italy.png", dpi=1000, bbox_inches = 'tight')
     Draw.plt.show()
-    """
+

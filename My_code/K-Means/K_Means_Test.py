@@ -12,14 +12,14 @@ import profile
 def main():
     start_time = time.time()
 
-    cluster_number = 14
+    cluster_number = 12
 
     # 生成的数据
     global index
     global POINT_COUNT
     # name = 'C:/Users/74412/Desktop/article/Article_Data/Uniform/' + str(POINT_COUNT) + '_' + str(index) + '.csv'
     # data = pd.read_csv(name, usecols=[1, 2]).values
-    data = pd.read_csv('F:/Scientific_Literature/写论文/test_data/Uruguay - 734.csv', usecols=[1, 2]).values
+    data = pd.read_csv('C:/Users/karel/Desktop/大论文/Data/50_0.csv', usecols=[1, 2]).values
     # data = np.random.uniform(-100, 100, size=(400, 2))
     # data = data.round(2)
 
@@ -56,7 +56,7 @@ def main():
 
                 for index, value in cluster.items():
                     plt.scatter(value[:, 0], value[:, 1], marker="p", color='#0099CC',
-                                edgecolors="black", s=1, linewidths=0.02)
+                                edgecolors="black", s=10, linewidths=0.02)
                     plt.scatter(fit_result.cluster_centers_[index][0], fit_result.cluster_centers_[index][1],
                                 marker="*", color="#FF0066", edgecolors="black", s=50, linewidths=1, zorder = 100)
 
@@ -111,8 +111,8 @@ if __name__ == "__main__":
 
 
     # 在已经生成的数据上，跑代码
-    RADIUS = 800
-    POINT_COUNT = 200
+    RADIUS = 250
+    POINT_COUNT = 50
 
     start_time = time.time()
 

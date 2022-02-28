@@ -13,7 +13,7 @@ import math
 import time
 from My_code.Clique_Method import Draw
 
-RADIUS = 50
+RADIUS = 250
 DIAMETER = 2 * RADIUS
 
 
@@ -100,7 +100,7 @@ def initialize(number, distributed):
     if distributed == "poisson":
         points = np.random.poisson(lam=(100, 100), size=(number, 2))
     if distributed == "read":
-        points = pd.read_csv('C:/Users/74412/Desktop/article/test.csv', usecols=[1, 2]).values
+        points = pd.read_csv('C:/Users/karel/Desktop/大论文/Data/300_0.csv', usecols=[1, 2]).values
     # 初始化点类的集合
     points_set = {}
 
@@ -658,13 +658,12 @@ def core(points_set, degree, points, adjacency_matrix):
 
 
 # 计算每个MBS的中心
-def get_center(mbs_set, points_set):
+def get_center(mbs_set):
+    center_location = []
     for key, value in mbs_set.items():
-        inner_points = read_mbs_location(value, points_set)
-        temp_miniball = miniball.Miniball(inner_points)
-        value.center = temp_miniball.center()
+        center_location.append(value.center)
 
-    return mbs_set
+    return center_location
 
 
 # 显示点集的度数信息和相邻信息
@@ -688,7 +687,7 @@ def main():
     # start_time = time.time()
     # __points_set，点类的集合，__points点的列表集合，__adjacency_matrix邻接矩阵
     __points_set, __points, __adjacency_matrix, __degree, __points_distance \
-        = initialize(400, "uniform")  # uniform, normal, poisson, read
+        = initialize(400, "read")  # uniform, normal, poisson, read
     __adjacency_matrix = np.array(__adjacency_matrix)
     # __mbs_set = randomization_1_start(__points_set, __degree)
     __mbs_set, count = core(__points_set.copy(), __degree.copy(), __points.copy(), __adjacency_matrix.copy())
@@ -714,25 +713,33 @@ def main():
     # Draw.plt.axis("equal")
     # Draw.plt.show()
     # Draw.plt.clf()
-    """
-    Draw.draw_plot(__points, __adjacency_matrix)
+
+    # Draw.draw_plot(__points, __adjacency_matrix)
     Draw.show_scatter(__points, 1, "#00CC66")
     Draw.plt.axis("equal")
+    Draw.draw_mbs(__mbs_set)
+
     Draw.plt.show()
 
+    """
     Draw.show_scatter(__points, 1, "#00CC66")  # #33CCFF,#00CC66
     Draw.draw_plot(__points, __adjacency_matrix)
     # Draw.draw_mbs(__mbs_set)
     Draw.draw_mbs_for_Show_off(__mbs_set, __points_set)
     Draw.plt.axis("equal")
     Draw.plt.show()
+    """
+
+    # 将MBS的位置输出
+    df = pd.DataFrame(get_center(__mbs_set))
+    df.to_csv('C:/Users/karel/Desktop/大论文/Data/MDP_VBS.csv')
 
     # end_time = time.time()
     # secs = end_time - start_time
     # print(" took", secs, "seconds")
 
     # randomization_1_start()
-    """
+
     return len(__mbs_set), count
 
 
@@ -746,7 +753,7 @@ if __name__ == "__main__":
 
     ave_mbs_num = 0
     min_mbs_num = 10000
-    number = 50
+    number = 1
     sum_ex_count = 0
 
     for i in range(number):
