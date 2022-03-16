@@ -732,7 +732,7 @@ def main():
 
     # 将MBS的位置输出
     df = pd.DataFrame(get_center(__mbs_set))
-    df.to_csv('C:/Users/karel/Desktop/大论文/Data/MDP_VBS.csv')
+    # df.to_csv('C:/Users/karel/Desktop/大论文/Data/MDP_VBS.csv')
 
     # end_time = time.time()
     # secs = end_time - start_time

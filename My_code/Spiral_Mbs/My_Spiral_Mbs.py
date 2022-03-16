@@ -89,7 +89,7 @@ def execute(seq, radius):
             # print(len(boundarySetInOrder))
             # print("----------------")
             # uav_position = boundarySetInOrder[10]
-            index = np.random.choice(len(boundarySetInOrder), 1)[0]
+            index = np.random.choice(len(boundarySetInOrder), 8)[0]
             # print(index)
             uav_position = boundarySetInOrder[index]
 
@@ -146,7 +146,7 @@ def execute(seq, radius):
 
 def main():
     start_time = time.time()
-    RADIUS = 250
+    RADIUS = 800
 
     np.random.seed()
     # data = np.random.uniform(-100, 100, size=(500, 2))
@@ -154,9 +154,9 @@ def main():
 
     # data = np.random.poisson(100, size=(800, 2))
 
-    name = 'C:/Users/karel/Desktop/大论文/Data/' + str(50) + '_' + str(index) + '.csv'
-    data = pd.read_csv(name, usecols=[1, 2]).values
-    # data = pd.read_csv('F:/Scientific_Literature/写论文/test_data/Uruguay - 734.csv', usecols=[1, 2]).values
+    # name = 'C:/Users/karel/Desktop/大论文/Data/' + str(50) + '_' + str(index) + '.csv'
+    # data = pd.read_csv(name, usecols=[1, 2]).values
+    data = pd.read_csv('F:/Scientific_Literature/写论文/test_data/Uruguay - 734.csv', usecols=[1, 2]).values
     # data = np.round(data, 3)
     data = list_to_tuple(data)
     # data = [(math.modf(dot[0])[1], math.modf(dot[1])[1]) for dot in data]
@@ -253,8 +253,8 @@ if __name__ == "__main__":
     """
 
     # 输出的操作
-    # df = pd.DataFrame(UAV_positionSet)
-    # df.to_csv('C:/Users/karel/Desktop/大论文/Data/Spiral_VBS.csv')
+    df = pd.DataFrame(UAV_positionSet)
+    df.to_csv('C:/Users/karel/Desktop/EDGE_VBS.csv')
 
 
     """

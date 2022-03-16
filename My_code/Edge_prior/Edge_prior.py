@@ -69,16 +69,18 @@ def find_L_nearest(base, uncovered):
 
 if __name__ == "__main__":
     L = 100000
-    R = 50
+    R = 800
     number = 100
 
     sum_MBS = 0
 
-    for index in range(0, 100):
+    for index in range(0, 1):
 
         ball_set = []
 
-        name = 'C:/Users/karel/Desktop/article/Article_Data/Uniform/' + str(number) + '_' + str(index) + '.csv'
+        # name = 'C:/Users/karel/Desktop/article/Article_Data/Uniform/' + str(number) + '_' + str(index) + '.csv'
+        name = 'F:/Scientific_Literature/写论文/test_data/Uruguay - 734.csv'
+        # name = 'C:/Users/karel/Desktop/article/Article_Data/Fig_4/Spiral_Uruguay.csv'
         data = pd.read_csv(name, usecols=[1, 2]).values
 
         points = data.copy()
@@ -136,7 +138,10 @@ if __name__ == "__main__":
 
         sum_MBS += len(ball_set)
 
-    print(sum_MBS/100)
+    print(sum_MBS/1)
+    print(ball_set)
+    df = pd.DataFrame(ball_set)
+    df.to_csv('C:/Users/karel/Desktop/EDGE_VBS.csv')
     """
     data = np.array([[0,0], [1, 1], [3, 3]])
     print(data)

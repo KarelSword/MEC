@@ -8,10 +8,10 @@ if __name__ == '__main__':
     matplotlib.rcParams['axes.unicode_minus'] = False
 
     label_list = ['2.5', '3.5', '4.5']  # 横坐标刻度显示值
-    num_list1 = [2.25, 2.31, 2.42]  # 纵坐标值1
-    num_list2 = [2.17, 2.24, 2.33]  # 纵坐标值2
-    num_list3 = [1.89, 1.9, 2.13]  # 纵坐标值1
-    num_list4 = [1.88, 1.97, 2.03]  # 纵坐标值2
+    num_list1 = [4.64, 4.86, 5.17]  # 纵坐标值1
+    num_list2 = [7.14, 7.35, 7.47]  # 纵坐标值2
+    num_list3 = [7.93, 8.33, 8.64]  # 纵坐标值1
+    num_list4 = [9.66, 10.84, 11.42]  # 纵坐标值2
     x = [0, 1.5, 3]
 
     """
@@ -30,8 +30,9 @@ if __name__ == '__main__':
                      color='#0054ff', linewidth=1, label="75%再生料")
     rects4 = plt.bar([i + 0.6 for i in x], height=num_list4, width=0.2,
                      alpha=0.8,  color='#ff003c', linewidth=1, label="100%再生料")
-    plt.ylim(1.5, 3)  # y轴取值范围
-    plt.ylabel("最大干密度$(g/cm^3)$")
+    plt.ylim(4, 12)  # y轴取值范围
+    #plt.ylabel("最大干密度$(g/cm^3)$")
+    plt.ylabel("最佳含水率(%)")
 
     """
     设置x轴刻度显示值
@@ -58,6 +59,6 @@ if __name__ == '__main__':
         height = rect.get_height()
         plt.text(rect.get_x() + rect.get_width() / 2, height + 0.02, str(height), ha="center", va="bottom")
 
-    plt.grid()
+    #plt.grid()
     plt.savefig("C:/Users/karel/Desktop/bar.png", dpi=1000, bbox_inches='tight')
     plt.show()

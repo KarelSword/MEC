@@ -2,19 +2,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from scipy.spatial import ConvexHull
+import matplotlib
 
 """
 对比图像的绘制
 """
 
-RADIUS = 250
+RADIUS = 800
 DIAMETER = 2 * RADIUS
 
 
 # 绘制点，可以选择是否绘制点的信息
 def show_scatter(points, flag, points_color):
     plt.scatter(points[:, 0], points[:, 1], marker="o", color=points_color,
-                edgecolors="black", s=20, linewidths=0.5)
+                edgecolors="black", s=10, linewidths=0.5, label='地面终端')
     # plt.scatter(points[400, 0], points[400, 1], marker="o", color=points_color, zorder=0,
     #             edgecolors="black", s=10, linewidths=0.5, label='GT', )
     if flag:
@@ -55,8 +56,12 @@ def draw_mbs_other(mbs_set, style, name, color):
 
 if __name__ == '__main__':
 
-    # name = 'F:/Scientific_Literature/写论文/test_data/Uruguay - 734.csv'
-    name = 'C:/Users/karel/Desktop/大论文/Data/50_0.csv'
+    # 设置中文字体和负号正常显示
+    matplotlib.rcParams['font.sans-serif'] = ['SimHei']
+    matplotlib.rcParams['axes.unicode_minus'] = False
+
+    name = 'F:/Scientific_Literature/写论文/test_data/Uruguay - 734.csv'
+    # name = 'C:/Users/karel/Desktop/大论文/Data/50_0.csv'
     points = pd.read_csv(name, usecols=[1, 2]).values
     # hull = ConvexHull(points)
     # plt.plot(points[hull.vertices, 0], points[hull.vertices, 1], 'r--', lw=2)
@@ -69,12 +74,12 @@ if __name__ == '__main__':
     draw_mbs_other(sdf_mbs, "*", "MBS(Core-sets)", "#33CC33")
     """
 
-
+    """
     # name = 'C:/Users/74412/Desktop/article/Article_Data/Fig_4/MDP_Uruguay.csv'
     name = 'C:/Users/karel/Desktop/大论文/Data/MDP_VBS.csv'
     MDP_mbs = pd.read_csv(name, usecols=[1, 2]).values
     draw_mbs(MDP_mbs)
-
+    """
 
     """
     # name = 'C:/Users/74412/Desktop/article/Article_Data/Fig_4/Spiral_Uruguay.csv'
@@ -92,10 +97,24 @@ if __name__ == '__main__':
     draw_mbs_other(k_means_mbs, "*", "MBS(K-means)", "#33CC33")
     """
 
-    # plt.legend()
-    plt.axis("equal")
-    # plt.axis('off')
 
-    plt.savefig("C:/Users/karel/Desktop/大论文/Data/MDP.png", dpi=1000, bbox_inches = 'tight')
+    # Edge-prior算法
+    name = 'C:/Users/karel/Desktop/EDGE_VBS.csv'
+    edge_mbs = pd.read_csv(name, usecols=[1, 2]).values
+    draw_mbs_other(edge_mbs, "*", "基站(Edge-Prior)", "#33CC33")
+
+
+    """
+    # 遗传算法
+    name = 'C:/Users/karel/Desktop/遗传_VBS.csv'
+    edge_mbs = pd.read_csv(name, usecols=[1, 2]).values
+    draw_mbs_other(edge_mbs, "*", "基站(遗传算法)", "#33CC33")
+    """
+
+    plt.legend()
+    plt.axis("equal")
+    plt.axis('off')
+
+    plt.savefig("C:/Users/karel/Desktop/E.png", dpi=1000, bbox_inches = 'tight')
     plt.show()
 
